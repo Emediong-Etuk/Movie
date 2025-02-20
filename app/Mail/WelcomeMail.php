@@ -24,7 +24,7 @@ class WelcomeMail extends Mailable
     {
         //
         $this->getUserEmail=$getUserEmail;
-        $this->validToken=$validatorToken;
+        $this->validatorToken=$validatorToken;
         $this->getUserName=$getUserName;
     }
 

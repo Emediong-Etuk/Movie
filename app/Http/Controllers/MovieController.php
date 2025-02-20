@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\Verifytoken;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
@@ -14,6 +15,30 @@ class MovieController extends Controller
      */
     public function index():View{
         return view('movies.index');
+    }
+
+    public function verifyaccount():View{
+        return view('movies.verifyaccount');
+    }
+
+    public function useractivation(Request $request){
+        $getToken=$request->token;
+        $getToken=Verifytoken::where('token',$getToken)->first();
+
+        if($getToken){
+            $getToken->is_activated=1;
+            $getToken->save();
+
+            $user=User::where('email',$getToken->email)->first();
+            $user->is_activated=1;
+            $user->save();
+            $gettingToken=Verifytoken::where('token',$getToken->token)->first();
+            $gettingToken->delete();
+            return redirect()->route('movie')->with('activated','Your account has been activated successfully');
+        }
+        else{
+            return redirect()->route('verifyaccount')->with('error','Invalid token');
+        }
     }
 
     /**

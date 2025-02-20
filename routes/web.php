@@ -10,6 +10,8 @@ Route::get('/', function () {
 });
 
 Route::get('/movie', [MovieController::class, 'index'])->name('movie.index');
+Route::get('/verifyaccount', [MovieController::class, 'verifyaccount'])->name('verifyaccount');
+Route::post('/verifyotp', [MovieController::class, 'useractivation'])->name('verifyotp');
 Route::post('/movie/signup',[SignupController::class,'signup'])->name('movie.signup');
 Route::post('/movie/login',[LoginController::class,'login'])->name('movie.login');
 Route::get('/movie/loginpage',[LoginController::class,'loginpage'])->name('movie.loginpage');

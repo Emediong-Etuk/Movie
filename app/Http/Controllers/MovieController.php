@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\Verifytoken;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
@@ -16,6 +17,7 @@ class MovieController extends Controller
         return view('movies.index');
     }
 
+   
     /**
      * Show the form for creating a new resource.
      */

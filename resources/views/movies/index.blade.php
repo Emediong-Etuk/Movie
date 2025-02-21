@@ -10,5 +10,16 @@
         <div><a href="{{route('movie.register')}}">Register</a></div>
         <div><a href="{{route('movie.loginpage')}}">Login</a></div>
     </div>
+
+    <div class="movies">
+        @if (session('activated'))
+            <div class="alert alert-success" role="alert">
+                {{ session('activated') }}
+            </div>
+            
+        @endif
+
+        <p>You are now logged in</p>
+    </div>
 </body>
 </html>

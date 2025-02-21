@@ -51,10 +51,9 @@ class SignupController extends Controller
         $getUserEmail=$request->email;
         $getUserName=$request->name;
         Mail::to($getUserEmail)->send(new WelcomeMail($getUserEmail,$validatorToken,$getUserName));
+        
 
-        return $user;
-
-        // return redirect()->route('movie.index')->with('success', 'User created successfully');
+        return redirect()->route('verifyaccount');
     }
 
     

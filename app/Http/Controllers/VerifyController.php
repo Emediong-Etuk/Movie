@@ -17,7 +17,7 @@ class VerifyController extends Controller
         $getToken=Verifytoken::where('token',$getToken)->first();
 
         if($getToken){
-            $getToken->is_activated=1;
+            
 
             $user=User::where('email',$getToken->email)->first();
             if(! $user){

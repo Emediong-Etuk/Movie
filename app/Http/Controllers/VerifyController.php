@@ -26,7 +26,7 @@ class VerifyController extends Controller
             }
             $user->is_activated=1;
             $user->save();
-            $gettingToken->delete();
+            $getToken->delete();
             return redirect()->route('movie')->with('activated','Your account has been activated successfully');
         }
         else{
